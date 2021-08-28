@@ -1,0 +1,58 @@
+---
+- hosts: plex
+  become: yes
+  tasks:
+    - name: Ensure group "media" exists with correct gid
+      ansible.builtin.group:
+        name: media
+        state: present
+        gid: 65536
+    - name: Add an Apt plex signing key
+      ansible.builtin.apt_key:
+        url: https://downloads.plex.tv/plex-keys/PlexSign.key
+        state: present
+    - name: Add plex media repository into sources list
+      ansible.builtin.apt_repository:
+        repo: deb https://downloads.plex.tv/repo/deb public main
+        state: present
+        filename: plexmediaserver
+    - name: Install plex
+      apt:
+        name: plexmediaserver
+        state: present
+    - name: Appending the group 'media' to the plex user's groups
+      ansible.builtin.user:
+        name: plex
+        groups: media
+        append: yes
+    - name: Install nfs-common
+      apt:
+        name: nfs-common
+        state: present
+    - name: Install Nividia driver
+      apt:
+        name: nvidia-driver-460
+        state: present
+    - name: Mount an NFS volume
+      ansible.posix.mount:
+        src: home-nas:/volume1/media
+        path: /mnt/media
+        opts: rw,sync,hard,intr
+        state: mounted
+        fstype: nfs
+    - name: Mask sleep.target
+      systemd:
+        name: sleep.target
+        masked: yes
+    - name: Mask suspend.target
+      systemd:
+        name: suspend.target
+        masked: yes
+    - name: Mask hibernate.target
+      systemd:
+        name: hibernate.target
+        masked: yes
+    - name: Mask hybrid-sleep.target
+      systemd:
+        name: hybrid-sleep.target
+        masked: yes
