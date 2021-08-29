@@ -37,3 +37,4 @@ spec:
       serverName: "Bunn Server"
       cheats: true
       serviceType: ClusterIP
+      externalTrafficPolicy: Cluster
