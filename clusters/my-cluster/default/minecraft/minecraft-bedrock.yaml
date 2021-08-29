@@ -36,5 +36,4 @@ spec:
       levelName: world
       serverName: "Bunn Server"
       cheats: true
-      serviceType: ClusterIP
-      externalTrafficPolicy: Cluster
+      serviceType: LoadBalancer
