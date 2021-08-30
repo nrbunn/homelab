@@ -17,17 +17,6 @@ spec:
         namespace: flux-system
       interval: 5m
   values:
-    crds:
-      enabled: false
-    csi:
-      kubeletDirPath: /var/lib/kubelet
-      enableGrpcMetrics: true
-      enableCSIHostNetwork: true
-      pluginTolerations:
-        - key: "arm"
-          operator: "Exists"
-        - key: "node-role.kubernetes.io/master"
-          operator: "Exists"
     resources:
       limits:
         cpu: 1000m
