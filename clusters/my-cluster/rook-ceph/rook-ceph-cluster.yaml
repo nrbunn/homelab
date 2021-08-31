@@ -23,7 +23,6 @@ spec:
       enabled: true
     storage: # cluster level storage configuration and selection
       useAllNodes: true
-      useAllDevices: true
       deviceFilter: vd[a-z]
     resources:
       limits:
