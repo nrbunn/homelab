@@ -24,7 +24,7 @@ spec:
     storage: # cluster level storage configuration and selection
       useAllNodes: true
       useAllDevices: true
-      deviceFilter: sd[a-z]
+      deviceFilter: vd[a-z]
     resources:
       limits:
         cpu: 1000m
