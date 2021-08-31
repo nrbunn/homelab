@@ -1,18 +1,18 @@
-# # pool with replication enabled
-# apiVersion: ceph.rook.io/v1
-# kind: CephBlockPool
-# metadata:
-#   name: replicated-metadata-pool
-#   namespace: rook-ceph
-# spec:
-#   replicated:
-#     size: 2
-# ---
-# apiVersion: storage.k8s.io/v1
-# kind: StorageClass
-# metadata:
-#    name: rook-ceph-block
-# provisioner: ceph.rook.io/block
-# parameters:
-#   # The replicated pool as the `blockPool` parameter
-#   blockPool: replicated-metadata-pool
+# pool with replication enabled
+apiVersion: ceph.rook.io/v1
+kind: CephBlockPool
+metadata:
+  name: replicated-metadata-pool
+  namespace: rook-ceph
+spec:
+  replicated:
+    size: 2
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+   name: rook-ceph-block
+provisioner: ceph.rook.io/block
+parameters:
+  # The replicated pool as the `blockPool` parameter
+  blockPool: replicated-metadata-pool
