@@ -20,7 +20,7 @@ spec:
     toolbox:
       enabled: true
     monitoring:
-      enabled: true
+      enabled: false
     storage: # cluster level storage configuration and selection
       useAllNodes: true
       useAllDevices: false
