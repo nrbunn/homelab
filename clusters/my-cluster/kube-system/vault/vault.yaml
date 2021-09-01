@@ -20,7 +20,6 @@ spec:
     server:
       dataStorage:
         enabled: true
-        storageClass: "ceph-block"
       extraEnvironmentVars:
         GOOGLE_APPLICATION_CREDENTIALS: /vault/userconfig/kms-vault/account.json
       extraVolumes:
