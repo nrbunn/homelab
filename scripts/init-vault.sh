@@ -19,7 +19,7 @@ need "kubectl"
 need "sed"
 need "jq"
 
-. "$REPO_ROOT"/setup/.env
+. "$REPO_ROOT"/scripts/.env
 
 message() {
   echo -e "\n######################################################################"
@@ -39,7 +39,9 @@ initVault() {
   message "initializing and unsealing vault (if necesary)"
   VAULT_READY=1
   while [ $VAULT_READY != 0 ]; do
+    kubectl -n kube-system wait --for condition=Initialized pod/vault-0
     kubectl -n kube-system wait --for condition=Initialized pod/vault-0 > /dev/null 2>&1
+    message "$?"
     VAULT_READY="$?"
     if [ $VAULT_READY != 0 ]; then
       echo "waiting for vault pod to be somewhat ready..."
@@ -167,8 +169,8 @@ EOF
 
 loadSecretsToVault() {
   message "writing secrets to vault"
-#   vault kv put secrets/flux-system/discord-webhook address="$DISCORD_FLUX_WEBHOOK_URL"
-#   vault kv put secrets/cert-manager/cloudflare-api-key api-key="$CF_API_KEY"
+  vault kv put secrets/flux-system/discord-webhook address="$DISCORD_FLUX_WEBHOOK_URL"
+  vault kv put secrets/cert-manager/cloudflare-api-key api-key="$CF_API_KEY"
 
   ####################
   # helm chart values
@@ -193,7 +195,7 @@ loadSecretsToVault() {
 }
 
 FIRST_RUN=1
-export KUBECONFIG="$REPO_ROOT/setup/kubeconfig"
+#export KUBECONFIG="$REPO_ROOT/setup/kubeconfig"
 export VAULT_ADDR='http://127.0.0.1:8200'
 
 initVault
