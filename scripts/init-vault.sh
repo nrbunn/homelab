@@ -41,7 +41,6 @@ initVault() {
   while [ $VAULT_READY != 0 ]; do
     kubectl -n kube-system wait --for condition=Initialized pod/vault-0
     kubectl -n kube-system wait --for condition=Initialized pod/vault-0 > /dev/null 2>&1
-    message "$?"
     VAULT_READY="$?"
     if [ $VAULT_READY != 0 ]; then
       echo "waiting for vault pod to be somewhat ready..."

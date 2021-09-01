@@ -48,4 +48,6 @@ spec:
     - kind: HelmRelease
       namespace: 'velero'
       name: '*'
+    - kind: Kustomization
+      name: '*'
   suspend: false
