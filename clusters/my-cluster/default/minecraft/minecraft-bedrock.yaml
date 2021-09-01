@@ -34,7 +34,7 @@ spec:
       difficulty: normal
       gameMode: survival
       levelName: world
-      serverName: "Bunn Server"
+      serverName: "Bunn  Server"
       cheats: true
       serviceType: LoadBalancer
       texturepackRequired: false
