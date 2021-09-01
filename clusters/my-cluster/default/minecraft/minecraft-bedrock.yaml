@@ -18,7 +18,7 @@ spec:
       interval: 5m
   values:
     persistence:
-      storageClass: "nfs-client"
+      storageClass: "ceph-block"
       dataDir:
         enabled: true
         Size: 10Gi
