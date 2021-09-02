@@ -22,4 +22,4 @@ spec:
         - name: default
           protocol: layer2
           addresses:
-          - 198.168.86.0/24
+          - 198.168.86.200/28
