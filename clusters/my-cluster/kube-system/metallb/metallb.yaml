@@ -1,4 +1,4 @@
- ---
+---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
@@ -17,8 +17,9 @@ spec:
         namespace: flux-system
       interval: 5m
   values:
-    address-pools:
-      - name: default
-        protocol: layer2
-        addresses:
-        - 198.168.86.0/24
+    configInline:
+      address-pools:
+        - name: default
+          protocol: layer2
+          addresses:
+          - 198.168.86.0/24
