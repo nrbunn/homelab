@@ -21,6 +21,9 @@ spec:
       enabled: true
     monitoring:
       enabled: false
+    dashboard:
+      enable: true
+      type: LoadBalancer
     storage: # cluster level storage configuration and selection
       useAllNodes: true
       useAllDevices: false
