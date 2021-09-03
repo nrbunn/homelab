@@ -13,7 +13,6 @@ spec:
   tls:
    - hosts:
      - rook-ceph.nickbunn.com
-     secretName: rook-ceph.nickbunn.com
   rules:
   - host: rook-ceph.nickbunn.com
     http:
@@ -24,4 +23,5 @@ spec:
           service:
             name: rook-ceph-mgr-dashboard
             port:
-              name: https-dashboard
+              number: 7000
+            
