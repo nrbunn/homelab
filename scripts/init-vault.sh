@@ -190,7 +190,7 @@ loadSecretsToVault() {
 #   kvault "default/rtorrent-flood/rtorrent-flood-helm-values.txt"
 #   kvault "default/teslamate/teslamate-helm-values.txt"
 #   kvault "default/valheim/valheim-helm-values.txt"
-#   kvault "velero/velero/velero-helm-values.txt"
+   kvault "clusters/my-cluster/velero/velero-helm-values.txt"
 }
 
 FIRST_RUN=1
