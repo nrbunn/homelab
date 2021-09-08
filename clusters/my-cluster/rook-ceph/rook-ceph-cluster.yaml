@@ -20,7 +20,7 @@ spec:
     toolbox:
       enabled: true
     monitoring:
-      enabled: false
+      enabled: true
     dashboard:
       enable: true
     storage: # cluster level storage configuration and selection

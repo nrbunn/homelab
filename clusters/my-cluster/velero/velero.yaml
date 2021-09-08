@@ -52,9 +52,9 @@ spec:
       limits:
         memory: 1500Mi
     metrics:
-      enabled: false
+      enabled: true
       serviceMonitor:
-        enabled: false
+        enabled: true
     snapshotsEnabled: true
     deployRestic: true
     upgradeCRDs: false
