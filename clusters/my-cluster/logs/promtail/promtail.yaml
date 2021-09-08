@@ -65,4 +65,4 @@ spec:
         mountPath: /var/log/journal
         readOnly: true
     serviceMonitor:
-      enabled: true
+      enabled: false
