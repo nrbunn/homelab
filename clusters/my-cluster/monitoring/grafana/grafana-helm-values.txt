@@ -1,2 +1,2 @@
-adminUser: nick@nickbunn.com
+adminUser: admin
 adminPassword: "$GRAFANA_PASSWORD"
