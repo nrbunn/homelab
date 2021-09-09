@@ -18,3 +18,5 @@ ansible-galaxy collection install ansible.posix
 #cp ../files/ansible.cfg ~/ansible.cfg
 
 git clone https://github.com/k3s-io/k3s-ansible.git
+
+##you might need to do something with default storage class local for k3s
