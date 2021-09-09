@@ -1,0 +1,7 @@
+communications:
+  discord:
+    enabled: true
+    token: '$BOTKUBE_DISCORD_TOKEN'
+    botid: '885519163643277363'
+    channel: '882742218887139408'
+    notiftype: short
