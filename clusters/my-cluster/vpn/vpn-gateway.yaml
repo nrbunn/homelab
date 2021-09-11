@@ -18,7 +18,7 @@ spec:
         namespace: flux-system
       interval: 5m
 
-  # See https://github.com/k8s-at-home/charts/blob/master/charts/pod-gateway/values.yaml
+  ## See https://github.com/k8s-at-home/charts/blob/master/charts/pod-gateway/values.yaml
   values:
     routed_namespaces:
     - vpn
