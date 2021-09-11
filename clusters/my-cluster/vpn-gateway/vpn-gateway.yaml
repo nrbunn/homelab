@@ -4,7 +4,7 @@ kind: HelmRelease
 metadata:
   name: vpn-gateway
   labels:
-  namespace: vpn
+  namespace: vpn-gateway
 spec:
   interval: 5m
   chart:
@@ -21,7 +21,7 @@ spec:
   ## See https://github.com/k8s-at-home/charts/blob/master/charts/pod-gateway/values.yaml
   values:
     routed_namespaces:
-    - vpn
+    - media
     # addons:
     #   vpn:
     #     enabled: true

@@ -1,0 +1,23 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"kustomize.toolkit.fluxcd.io/v1beta1","kind":"Kustomization","metadata":{"annotations":{"kustomize.toolkit.fluxcd.io/checksum":"c6afbbbdc0752dfccf1727d717f3908620722adf"},"labels":{"kustomize.toolkit.fluxcd.io/name":"flux-system","kustomize.toolkit.fluxcd.io/namespace":"flux-system"},"name":"flux-system","namespace":"flux-system"},"spec":{"interval":"10m0s","path":"./clusters/my-cluster","prune":true,"sourceRef":{"kind":"GitRepository","name":"flux-system"},"validation":"client"}}
+    kustomize.toolkit.fluxcd.io/checksum: c6afbbbdc0752dfccf1727d717f3908620722adf
+    reconcile.fluxcd.io/requestedAt: "2021-09-10T19:53:49.7287442-05:00"
+  labels:
+    kustomize.toolkit.fluxcd.io/name: flux-system
+    kustomize.toolkit.fluxcd.io/namespace: flux-system
+  name: flux-system
+  namespace: flux-system
+spec:
+  interval: 10m0s
+  path: ./clusters/my-cluster
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  validation: client
+

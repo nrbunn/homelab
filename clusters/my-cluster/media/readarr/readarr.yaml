@@ -2,15 +2,15 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: sonarr
-  namespace: default
+  name: readarr
+  namespace: media
 spec:
   interval: 5m
   chart:
     spec:
       # renovate: registryUrl=https://k8s-at-home.com/charts/
-      chart: sonarr
-      version: 12.3.0
+      chart: readarr
+      version: 5.3.0
       sourceRef:
         kind: HelmRepository
         name: k8s-at-home-charts
@@ -18,21 +18,21 @@ spec:
       interval: 5m
   values:
     image:
-      repository: ghcr.io/k8s-at-home/sonarr
-      tag: v3.0.6.1265
+      repository: hotio/readarr
+      tag: nightly-0.1.0.896
     ingress:
       main:
         enabled: true
         annotations:
           kubernetes.io/ingress.class: "nginx"
         hosts:
-        - host: sonarr.nickbunn.com
+        - host: readarr.nickbunn.com
           paths:
           - path: /
             pathType: Prefix
         tls:
         - hosts:
-          - "sonarr.nickbunn.com"
+          - "readarr.nickbunn.com"
     podAnnotations:
       backup.velero.io/backup-volumes: config
     persistence:
@@ -43,18 +43,9 @@ spec:
       media:
         enabled: true
         existingClaim: nfs-media-pvc
-    podSecurityContext:
-      runAsUser: 1001
-      runAsGroup: 1001
-      fsGroup: 1001
     resources:
       requests:
         memory: 350Mi
         cpu: 25m
       limits:
         memory: 500Mi
-    prometheus:
-      podMonitor:
-        enabled: true
-        interval: 10m
-        scrapeTimeout: 2m
