@@ -8,3 +8,14 @@ spec:
     - vpnConfigfile
   path: secrets/vpn-manager/vpnConfig
   type: Opaque
+---
+apiVersion: ricoberger.de/v1alpha1
+kind: VaultSecret
+metadata:
+  name: vpn-auth
+  namespace: vpn-gateway
+spec:
+  keys:
+    - VPN_AUTH
+  path: secrets/vpn-manager/vpnAuth
+  type: Opaque
