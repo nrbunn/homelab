@@ -6,5 +6,5 @@ metadata:
 spec:
   keys:
     - vpnConfigfile
-  path: secrets/clusters/my-cluster/vpn-gateway/vpnConfig
+  path: secrets/vpn-manager/vpnConfig
   type: Opaque
