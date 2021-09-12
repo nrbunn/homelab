@@ -1,0 +1,10 @@
+apiVersion: ricoberger.de/v1alpha1
+kind: VaultSecret
+metadata:
+  name: vpnConfig
+  namespace: vpn-gateway
+spec:
+  keys:
+    - vpnConfigfile
+  path: secrets/clusters/my-cluster/vpn-gateway/vpnConfig
+  type: Opaque
