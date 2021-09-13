@@ -39,7 +39,7 @@ spec:
             command:
               - sh
               - -c
-              - wget -q -O- https://ipinfo.io/country>>/logs/healthcheck
+              - wget -q -O- https://ipinfo.io/country>>/var/log/healthcheck
           initialDelaySeconds: 30
           periodSeconds: 60
           failureThreshold: 1
