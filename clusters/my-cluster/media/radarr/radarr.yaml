@@ -1,60 +1,56 @@
-# ---
-# apiVersion: helm.toolkit.fluxcd.io/v2beta1
-# kind: HelmRelease
-# metadata:
-#   name: radarr
-#   namespace: media
-# spec:
-#   interval: 5m
-#   chart:
-#     spec:
-#       # renovate: registryUrl=https://k8s-at-home.com/charts/
-#       chart: radarr
-#       version: 14.0.0
-#       sourceRef:
-#         kind: HelmRepository
-#         name: k8s-at-home-charts
-#         namespace: flux-system
-#       interval: 5m
-#   values:
-#     image:
-#       repository: ghcr.io/k8s-at-home/radarr
-#       tag: v3.2.2.5080
-#     ingress:
-#       main:
-#         enabled: true
-#         annotations:
-#           kubernetes.io/ingress.class: "nginx"
-#         hosts:
-#         - host: radarr.nickbunn.com
-#           paths:
-#           - path: /
-#             pathType: Prefix
-#         tls:
-#         - hosts:
-#           - "radarr.nickbunn.com"
-#     podAnnotations:
-#       backup.velero.io/backup-volumes: config
-#     persistence:
-#       config:
-#         enabled: true
-#         storageClass: "ceph-block"
-#         size: 3Gi
-#       media:
-#         enabled: true
-#         existingClaim: nfs-media-pvc
-#     podSecurityContext:
-#       runAsUser: 1001
-#       runAsGroup: 1001
-#       fsGroup: 1001
-#     resources:
-#       requests:
-#         memory: 350Mi
-#         cpu: 25m
-#       limits:
-#         memory: 500Mi
-#     prometheus:
-#       podMonitor:
-#         enabled: true
-#         interval: 10m
-#         scrapeTimeout: 2s
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: radarr
+  namespace: media
+spec:
+  interval: 5m
+  chart:
+    spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts/
+      chart: radarr
+      version: 14.0.0
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home-charts
+        namespace: flux-system
+      interval: 5m
+  values:
+    image:
+      repository: ghcr.io/k8s-at-home/radarr
+      tag: v3.2.2.5080
+    ingress:
+      main:
+        enabled: true
+        annotations:
+          kubernetes.io/ingress.class: "nginx"
+        hosts:
+        - host: radarr.nickbunn.com
+          paths:
+          - path: /
+            pathType: Prefix
+        tls:
+        - hosts:
+          - "radarr.nickbunn.com"
+    podAnnotations:
+      backup.velero.io/backup-volumes: config
+    persistence:
+      config:
+        enabled: true
+        storageClass: "ceph-block"
+        size: 3Gi
+      media:
+        enabled: true
+        existingClaim: nfs-media-pvc
+    resources:
+      requests:
+        memory: 350Mi
+        cpu: 25m
+      limits:
+        memory: 500Mi
+    prometheus:
+      podMonitor:
+        enabled: true
+        interval: 10m
+        scrapeTimeout: 2s
