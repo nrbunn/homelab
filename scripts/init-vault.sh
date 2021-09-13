@@ -170,7 +170,7 @@ loadSecretsToVault() {
   message "writing secrets to vault"
   vault kv put secrets/flux-system/discord-webhook address="$DISCORD_FLUX_WEBHOOK_URL"
   vault kv put secrets/cert-manager/cloudflare-api-token api-token="$CF_API_TOKEN"
-  vault kv put secrets/vpn-manager/vpnConfig vpnConfigfile="$(cat ./openvpn-config.txt)"
+  vault kv put secrets/vpn-manager/vpnConfig vpnConfigfile="$(cat ./.openvpn-config)"
   vault kv put secrets/vpn-manager/vpnAuth VPN_AUTH="$OPENVPN_AUTH"
 
   ####################
