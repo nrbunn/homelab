@@ -25,9 +25,11 @@ spec:
       TZ: CST
       PHOTOPRISM_CONFIG_PATH: /config
       # -- Photoprism storage path
-      PHOTOPRISM_STORAGE_PATH: /media/Photos
+      PHOTOPRISM_STORAGE_PATH: /media/Photos/storage
       # -- Photoprism originals path
-      PHOTOPRISM_ORIGINALS_PATH: /media/cloud-sync/google-drive
+      PHOTOPRISM_ORIGINALS_PATH: /media/Photos/originals
+      # -- Photoprism Import Path
+      PHOTOPRISM_IMPORT_PATH: /media/Photos/import
       # -- Initial admin password. **BE SURE TO CHANGE THIS!**
       PHOTOPRISM_ADMIN_PASSWORD: "please-change"
       # -- Disable authentication / password protection
