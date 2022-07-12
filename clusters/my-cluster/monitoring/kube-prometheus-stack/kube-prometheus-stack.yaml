@@ -173,24 +173,24 @@ spec:
         podMetadata:
           annotations:
             backup.velero.io/backup-volumes: prometheus-kube-prometheus-stack-prometheus-db
-        thanos:
-          image: quay.io/thanos/thanos:v0.27.0
-          version: v0.21.1
-          objectStorageConfig:
-            name: thanos-objstore-secret
-            key: objstore.yml
-        affinity:
-          podAntiAffinity:
-            requiredDuringSchedulingIgnoredDuringExecution:
-            - labelSelector:
-                matchExpressions:
-                - key: app
-                  operator: In
-                  values:
-                  - prometheus
-              topologyKey: "kubernetes.io/hostname"
-      thanosService:
-        enabled: true
+#        thanos:
+#          image: quay.io/thanos/thanos:v0.27.0
+#          version: v0.21.1
+#          objectStorageConfig:
+#            name: thanos-objstore-secret
+#            key: objstore.yml
+#        affinity:
+#          podAntiAffinity:
+#            requiredDuringSchedulingIgnoredDuringExecution:
+#            - labelSelector:
+#                matchExpressions:
+#                - key: app
+#                  operator: In
+#                  values:
+#                  - prometheus
+#              topologyKey: "kubernetes.io/hostname"
+#      thanosService:
+#        enabled: true
   # valuesFrom:
   # - kind: Secret
   #   name: "kube-prometheus-stack-helm-values"
