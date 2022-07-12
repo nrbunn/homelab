@@ -10,7 +10,7 @@
   // Do not rebase PRs
   "rebaseWhen": "conflicted",
   "helm-values": {
-    "fileMatch": ["./.+\\.yaml$"]
+    "fileMatch": ["./.+\\.yaml$"],
     "ignorePaths": [
       "flux-system/",
       ".github",
