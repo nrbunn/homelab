@@ -15,6 +15,7 @@
       "flux-system/",
       ".github",
       "rook-ceph/"
+    ],
   },
   "kubernetes": {
     "fileMatch": ["\\.yaml$"],
