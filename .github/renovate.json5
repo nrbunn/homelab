@@ -11,12 +11,17 @@
   "rebaseWhen": "conflicted",
   "helm-values": {
     "fileMatch": ["./.+\\.yaml$"]
+    "ignorePaths": [
+      "flux-system/",
+      ".github",
+      "rook-ceph/"
   },
   "kubernetes": {
     "fileMatch": ["\\.yaml$"],
     "ignorePaths": [
       "flux-system/",
-      ".github"
+      ".github",
+      "rook-ceph/"
     ],
   },
   "regexManagers": [
