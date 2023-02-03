@@ -19,7 +19,7 @@ spec:
   values:
     image:
       repository: hotio/readarr
-      tag: nightly-0.1.2.1544
+      tag: nightly-0.1.2.1558
     ingress:
       main:
         enabled: true
